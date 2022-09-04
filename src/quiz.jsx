@@ -12,7 +12,7 @@ export default function Quiz (props){
                     value={props.options[0]} 
                     onClick={props.chooseAnswer}
                     selected = {props.isSelected}
-                    className="here py-1 bg-white rounded-lg leading-tight text-left px-1 tracking-tighter text-[10px] md:text-md hover:bg-[#D6DBF5] ">{props.options[0]}
+                    className="here py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm hover:bg-[#D6DBF5] ">{props.options[0]}
                 </button>
 
 
@@ -21,7 +21,7 @@ export default function Quiz (props){
                     value={props.options[1]} 
                     onClick={props.chooseAnswer}
                     selected = {props.isSelected} 
-                    className="btn py-1 bg-white rounded-lg leading-tight text-left px-1 tracking-tighter text-[10px] md:text-md  hover:bg-[#D6DBF5] ">{props.options[1]}
+                    className="btn py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm  hover:bg-[#D6DBF5] ">{props.options[1]}
                 </button>
 
 
@@ -30,7 +30,7 @@ export default function Quiz (props){
                     value={props.options[2]} 
                     onClick={props.chooseAnswer}
                     selected = {props.isSelected}
-                    className="btn py-1 bg-white rounded-lg leading-tight text-left px-1 tracking-tighter text-[10px] md:text-md hover:bg-[#D6DBF5] ">{props.options[2]}
+                    className="btn py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm hover:bg-[#D6DBF5] ">{props.options[2]}
                 </button>
 
 
@@ -39,7 +39,7 @@ export default function Quiz (props){
                     value={props.options[3]}
                     onClick={props.chooseAnswer} 
                     selected = {props.isSelected}
-                    className="btn py-1 bg-white rounded-lg leading-tight tracking-tighter text-left px-1 text-[10px] md:text-md hover:bg-[#D6DBF5] ">{props.options[3]}
+                    className="btn py-1 border-2 rounded-lg leading-tight tracking-tighter text-left pl-1 md:text-sm text-[10px]  hover:bg-[#D6DBF5] ">{props.options[3]}
                 </button>
                 
             </div>
