@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+button.here[selected = true] {
+    /* background-color: "#D6DBF5"; */
+    background-color: black;
+
+}
+
+/* p[]{
+    color: red;
+} */
