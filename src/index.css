@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 
-button.here[selected = true] {
-    /* background-color: "#D6DBF5"; */
-    background-color: black;
-
+button.btn[selected=true] {
+    background-color: #D6DBF5;
 }
 
-/* p[]{
-    color: red;
-} */
+
+
+.top-design {
+        transform: rotate(180.deg);
+}
+.bottom-design {
+        transform: rotate(180.deg);
+}

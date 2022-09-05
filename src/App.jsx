@@ -39,9 +39,10 @@ function App() {
   }, [restart])
 
   function chooseAnswer (event){
-    console.log(event)
+    setIsSelected(prev => !prev)
     setQuizData(prev => prev.map(quest => {
         if(event.target.id == quest.id){
+          // console.log(event.target.selected)
           return {...quest, chosen_answer: event.target.value}
         }
         else{
@@ -90,25 +91,34 @@ function restartGame (){
   })
 
   return (
-    <div className="App md:w-1/2 mx-auto border min-h-screen px-4 border-teal-400">
-      {startGame && <main className="space-y-8 pt-8">
-      {quizElements}
-      <div className="flex justify-center items-center space-x-3">
-        {gameDone && <h1 className="font-bold text-lg text-[#293264]">You scored {score}/5 correct answers</h1>}
-        {!gameDone && <button onClick={checkAnswers} className="w-[30%] mx-auto py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
+
+    <div className='App w-full h-full mx-auto border relative overflow-x-hidden overflow-y-hidden'>
+
+      <div className="top-design absolute bg-[#FFFAD1] w-[200px] h-[200px] rounded-full -top-20 -right-20 ">hey</div>
+      <div className="bottom-design absolute bg-[#89CFF0] w-[200px] h-[200px] rounded-full -bottom-20 -left-20"></div>
 
 
-        {gameDone && <button onClick={restartGame} className="w-[30%] mx-auto py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Play Again</button>}
+      <div className="App md:w-1/2 mx-auto min-h-screen px-4 z-20  relative">
+          {startGame && <main className="py-2">
+          {quizElements}
+          <div className="flex justify-center items-center space-x-3 mt-12">
+            {gameDone && <h1 className="font-bold text-lg text-[#293264]">You scored {score}/5 correct answers</h1>}
+            {!gameDone && <button onClick={checkAnswers} className="w-[30%] py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
+
+
+            {gameDone && <button onClick={restartGame} className="w-[30%] py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Play Again</button>}
+          </div>
+          </main>}
+          
+          {!startGame && <div className="p-2 text-[#293264] text-center space-y-4 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+              <h1 className="md:text-4xl text-2xl font-bold">QUIZZICAL</h1>
+              <p className="tracking-tighter md:tracking-widest">Unleash the genious within! 🤓</p>
+              <button onClick={handleClick} className="px-6 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Start quiz</button>
+          </div>}
+
       </div>
-      </main>}
-      
-      {!startGame && <div className="p-2 text-[#293264] text-center space-y-3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-          <h1 className="md:text-4xl text-2xl font-bold">QUIZZICAL</h1>
-          <p className="hover:underline">Some description if needed</p>
-          <button onClick={handleClick} className="px-5 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Start quiz</button>
-      </div>}
-
     </div>
+    
   )
 }
 
