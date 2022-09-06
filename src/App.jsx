@@ -4,8 +4,6 @@ import React from 'react'
 import {nanoid} from 'nanoid'
 import Quiz from "./quiz"
 
-let correctAnswersCount = 0
-
 function App() {
 
   const initialData = () => {
