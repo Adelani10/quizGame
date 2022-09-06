@@ -122,15 +122,15 @@ function restartGame (){
 
     <div className='App w-full h-full mx-auto border relative overflow-x-hidden overflow-y-hidden'>
 
-      <div className="top-design absolute bg-[#FFFAD1] w-[200px] h-[200px] rounded-full -top-20 -right-20 ">hey</div>
+      <div className="top-design absolute bg-[#FFFAD1] w-[200px] h-[200px] rounded-full -top-20 -right-20 "></div>
       <div className="bottom-design absolute bg-[#89CFF0] w-[200px] h-[200px] rounded-full -bottom-20 -left-20"></div>
 
 
-      <div className="App md:w-1/2 mx-auto min-h-screen px-4 z-20  relative">
+      <div className="App md:w-1/2 mx-auto min-h-screen px-4 z-20 pb-8 relative">
           {startGame && <main className="py-2">
           {quizElements}
           <div className="flex justify-center items-center space-x-3 mt-12">
-            {gameDone && <h1 className="font-bold md:text-lg text-[#293264]">
+            {gameDone && <h1 className="font-bold md:text-lg text-sm text-[#293264]">
               You got {score}/5 correct answers!{score === 3 ? "👍🏻" : score > 3 ? "🥳" : "😬"}</h1>}
             {!gameDone && <button onClick={checkAnswers} className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
 

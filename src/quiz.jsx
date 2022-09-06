@@ -11,7 +11,7 @@ export default function Quiz (props){
                     value={option} 
                     onClick={props.chooseAnswer}
                     isselected={props.isAnswerSelected[index].toString()}
-                    className="answer py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm hover:bg-[#D6DBF5] ">{option}
+                    className="answer py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm">{option}
                 </button>
     })
 
