@@ -97,6 +97,7 @@ function restartGame (){
       }
     }
     setRestart(prev => !prev)
+    setCorrection(prev => !prev)
   }
 
 
