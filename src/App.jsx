@@ -132,14 +132,14 @@ function restartGame (){
           <div className="flex justify-center items-center space-x-3 mt-12">
             {gameDone && <h1 className="font-bold md:text-lg text-[#293264]">
               You got {score}/5 correct answers!{score === 3 ? "👍🏻" : score > 3 ? "🥳" : "😬"}</h1>}
-            {!gameDone && <button onClick={checkAnswers} className="w-[30%] py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
+            {!gameDone && <button onClick={checkAnswers} className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
 
 
-            {gameDone && <button onClick={restartGame} className="w-[30%] py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Play Again</button>}
+            {gameDone && <button onClick={restartGame} className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Play Again</button>}
           </div>
           </main>}
           
-          {!startGame && <div className="p-2 text-[#293264] text-center space-y-6 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+          {!startGame && <div className="p-2 text-[#293264] text-center space-y-6 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full">
               <h1 className="md:text-4xl text-2xl font-bold">QUIZZICAL</h1>
               <p className="tracking-tighter md:tracking-widest"> ❔❓  What've you got ❔❓</p>
               <button onClick={handleClick} className="px-6 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Start quiz</button>
@@ -147,7 +147,6 @@ function restartGame (){
 
       </div>
     </div>
-    
   )
 }
 
