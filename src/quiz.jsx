@@ -1,4 +1,5 @@
 import React from "react";
+import he from 'he'
 import "./index.css"
 
 export default function Quiz (props){
@@ -8,16 +9,18 @@ export default function Quiz (props){
         return <button 
                     key={props.answersIds[index]}
                     id={props.dataId}
-                    value={option} 
+                    value={he.decode(option)} 
                     onClick={props.chooseAnswer}
                     isselected={props.isAnswerSelected[index].toString()}
-                    className="answer py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm">{option}
+                    className="answer py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm">{he.decode(option)}
                 </button>
     })
 
     return (
         <div className="flex flex-col text-[#293264] mt-8 space-y-3 border-b-2 w-full">
-            <p className="md:tracking-widest md:text-lg tracking-wider font-bold leading-tight">{props.question}</p>
+            <p className="md:tracking-widest md:text-lg tracking-wider font-bold leading-tight">
+                {he.decode(props.question)}
+                </p>
             <div className="grid grid-cols-4 gap-3 w-full pb-4">
                 {quizOptions}
             </div>
