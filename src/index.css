@@ -1,13 +1,13 @@
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-button.btn[selected=true] {
+button.answer[isselected=true] {
     background-color: #D6DBF5;
 }
-
-
 
 .top-design {
         transform: rotate(180.deg);
@@ -15,3 +15,4 @@ button.btn[selected=true] {
 .bottom-design {
         transform: rotate(180.deg);
 }
+
