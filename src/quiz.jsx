@@ -7,8 +7,7 @@ export default function Quiz (props){
 const quizOptions = props.options.map((option, index)=> {
     const styles = {
         backgroundColor: (props.correction) && 
-        (props.correctAnswer === props.chosenAnswer) && 
-        (props.isAnswerSelected[index]) ? 
+        (props.correctAnswer === option) ? 
         "#94D7A2" : 
         (props.correction) && 
         (props.correctAnswer !== props.chosenAnswer) &&
