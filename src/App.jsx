@@ -75,27 +75,22 @@ function checkAnswers (){
          setScore(prev => prev + 1)
       }
     }
-
-    setCorrection (prev => !prev)
-    quizData.forEach((item)=> {
-      if (correction ){
-          if(item.correctAns === item.chosen_answer && item.isAnswerSelected) {
-            console.log("yes")
-          }
-      }
-    })
+    setCorrection(prev => !prev)
   }
 
 function restartGame (){
   setScore(0)
+  setCorrection(prev => !prev)
+  setRestart(prev => !prev)
   setGameDone(prev => !prev)
-  for (const item of quizData){
+
+
+  if(score === 0) {for (const item of quizData){
       if(item.correctAns == item.chosen_answer){
          setScore(prev => prev + 1)
       }
-    }
-    setRestart(prev => !prev)
-    setCorrection(prev => !prev)
+    }}
+    
   }
 
 
@@ -113,6 +108,7 @@ function restartGame (){
                 chooseAnswer={chooseAnswer}
                 correctAnswer={item.correctAns}
                 options={item.randomAnswers}
+                correction={correction}
           />
   })
 
@@ -139,7 +135,7 @@ function restartGame (){
           
           {!startGame && <div className="p-2 text-[#293264] text-center space-y-6 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full">
               <h1 className="md:text-4xl text-2xl font-bold">QUIZZICAL</h1>
-              <p className="tracking-tighter md:tracking-widest"> ❔❓  What've you got ❔❓</p>
+              <p className="tracking-tighter md:tracking-widest"> ❔❓ What've you got ❔❓</p>
               <button onClick={handleClick} className="px-6 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Start quiz</button>
           </div>}
 

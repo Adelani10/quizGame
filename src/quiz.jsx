@@ -4,14 +4,26 @@ import "./index.css"
 
 export default function Quiz (props){
 
+const quizOptions = props.options.map((option, index)=> {
+    const styles = {
+        backgroundColor: (props.correction) && 
+        (props.correctAnswer === props.chosenAnswer) && 
+        (props.isAnswerSelected[index]) ? 
+        "#94D7A2" : 
+        (props.correction) && 
+        (props.correctAnswer !== props.chosenAnswer) &&
+        (props.isAnswerSelected[index])
+         ?
+        "#F8BCBC" : ""
+    }
 
-    const quizOptions = props.options.map((option, index)=> {
         return <button 
                     key={props.answersIds[index]}
                     id={props.dataId}
                     value={he.decode(option)} 
                     onClick={props.chooseAnswer}
                     isselected={props.isAnswerSelected[index].toString()}
+                    style={styles}
                     className="answer py-1 border-2 rounded-lg leading-tight text-left pl-1 tracking-tighter text-[10px] md:text-sm">{he.decode(option)}
                 </button>
     })
