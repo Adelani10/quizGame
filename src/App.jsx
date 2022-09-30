@@ -27,6 +27,7 @@ function App() {
   const [score, setScore] = useState(0)
   const [restart, setRestart] = useState(false)
   const [correction, setCorrection] = useState(false)
+  const [disabledBtn, setDisabledBtn] = useState(false)
 
   function handleClick(){
     setStartGame(prev => !prev)
@@ -36,9 +37,11 @@ function App() {
     return [...arr].sort(() => 0.5 - Math.random())
   }
   useEffect(()=>{
+    setDisabledBtn(true)
     fetch("https://opentdb.com/api.php?amount=5&type=multiple")
     .then(res => res.json())
     .then(data => {
+      
       setQuizData(data.results.map((item)=>{
         return {
           id: nanoid(),
@@ -50,6 +53,7 @@ function App() {
           answersIds: new Array(item.incorrect_answers.length+1).fill(null).map(item => nanoid())
         }
       }))
+      setDisabledBtn(false)
     })
   }, [restart])
 
@@ -126,10 +130,15 @@ function restartGame (){
           <div className="flex justify-center items-center space-x-3 mt-12">
             {gameDone && <h1 className="font-bold md:text-lg text-sm text-[#293264]">
               You got {score}/5 correct answers!{score === 3 ? "👍🏻" : score > 3 ? "🥳" : "😬"}</h1>}
-            {!gameDone && <button onClick={checkAnswers} className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
+            {!gameDone && <button 
+                onClick={checkAnswers} 
+                disabled={disabledBtn}
+                className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Check Answers</button>}
 
 
-            {gameDone && <button onClick={restartGame} className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Play Again</button>}
+            {gameDone && <button 
+                onClick={restartGame} 
+                className="md:w-[30%] px-2 py-2 bg-[#293264] text-white rounded-lg hover:bg-sky-400 tracking-wider font-bold">Play Again</button>}
           </div>
           </main>}
           

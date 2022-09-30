@@ -16,3 +16,8 @@ button.answer[isselected=true] {
         transform: rotate(180.deg);
 }
 
+
+button:disabled {
+        background-color: rgb(109, 109, 130);
+}
+
